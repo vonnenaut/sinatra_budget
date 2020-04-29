@@ -11,17 +11,27 @@ div.wrapper {
   grid-template-areas: "header header header"
                        "flash flash flash"
                        "glance glance pie";
-  align-items: center;
-  justify-content: center;
 }
 
-div.actions {
-
+header {
+  grid-area: header;
 }
 
 div.flash {
   grid-area: flash;
   background-color: #71c6f7;
+}
+
+#glance {
+  grid-area: glance;
+}
+
+#pie {
+  grid-area: pie;
+}
+
+div.actions {
+
 }
 
 h1 {
@@ -32,10 +42,6 @@ h1 {
 h2 {
   font-size: 22px;
   padding: .8em;
-}
-
-header {
-  grid-area: header;
 }
 
 main#content {
@@ -50,12 +56,4 @@ table {
 tr, td {
   padding: 10px 10px 10px 5px;
   border-bottom: 1px solid black;
-}
-
-#glance {
-  grid-area: glance;
-}
-
-#pie {
-  grid-area: pie;
 }
