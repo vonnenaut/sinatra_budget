@@ -19,23 +19,26 @@ before do
   session[:items] ||= { 'rent' => 250, 'utilities' => 100, 'education' => 200 }
 end
 
-# def generate_pie_chart
-#   chart = PiCharts::Pie.new
+def generate_pie_chart
+  chart = PiCharts::Pie.new
   
-#   @data_hash.each_pair do |key, value|
-#     chart.add_dataset(label: key, data: value)  
-#   end
+  session[:items].each_pair do |key, value|
+    chart.add_dataset(label: key, data: value)  
+  end
 
-#   chart.hover
-#   chart.responsive
-#   chart.cdn + chart.html(width: 60)
-# end
+  chart.hover
+  chart.responsive
+  chart.cdn + chart.html(width: 60)
+end
 
 get "/" do
-  # draw pie chart
-  # @chart = generate_pie_chart unless @data_hash.nil?
   @items = session[:items]
+  @chart = generate_pie_chart unless @items.nil?
   erb :index, layout: :layout
+end
+
+get "/tools" do
+  erb :tools, layout: :layout
 end
 
 # Render the new budget item form
@@ -62,7 +65,8 @@ post "/" do
   redirect "/"
 end
 
-get "/delete/:category" do
+# delete a category
+post "/delete/:category" do
   session[:items].reject! { |item| item == params[:category] }
   session[:message] = "The category has been deleted."
   if env["HTTP_X_REQUESTED_WITH"] == "XMLHttpRequest"

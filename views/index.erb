@@ -1,18 +1,25 @@
 <!-- index.erb -->
 <h2>At-a-glance</h2>
-<!--<%= @chart %> -->
-<table>
+
+<table id="glance">
   <% @items.each_pair do |category, amount| %>
     <tr>
       <td><%= category %></td>
       <td><%= amount %></td>
       <td><a href="/edit/<%= category %>">edit</a></td>
-      <td><a href="/delete/<%= category %>">delete</a></td>
+      <td><form action="/delete/<%= category %>" method="post" class="delete">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
     </tr>
   <% end %>
-</ul>
+</table>
+
+<div id="pie">
+  <%= @chart %>
+</div>
 
 <% content_for :header_links do %>
-  <a href="/new">New Item</a>
-  <a href="/edit">Edit Budget</a>
+  <a class="add" href="/new"><button>Add Item</button></a>
+  <a class="tool" href="/tools"><button>Tools</button></a>
 <% end %>
