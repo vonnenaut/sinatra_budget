@@ -1,4 +1,18 @@
 <!-- index.erb -->
-<h1>At-a-glance</h1>
-<%= @chart %>
-<a href="/edit">Edit Budget</a>
+<h2>At-a-glance</h2>
+<!--<%= @chart %> -->
+<table>
+  <% @items.each_pair do |category, amount| %>
+    <tr>
+      <td><%= category %></td>
+      <td><%= amount %></td>
+      <td><a href="/edit/<%= category %>">edit</a></td>
+      <td><a href="/delete/<%= category %>">delete</a></td>
+    </tr>
+  <% end %>
+</ul>
+
+<% content_for :header_links do %>
+  <a href="/new">New Item</a>
+  <a href="/edit">Edit Budget</a>
+<% end %>

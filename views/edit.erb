@@ -1,5 +1,26 @@
 <!-- edit.erb -->
-Enter budget information:
-<form>
-  <label>name</label>
+<!-- Should list all existing budget items by category and amount, allowing any to be changed, with a save button at the bottom. -->
+<h1>Edit '<%= @category %>' category:</h1>
+<form method="post" action="/">
+  <dl>
+  
+    <dt>
+      <label for="category">Enter the category for your item:</label>
+    </dt>
+    <dd>
+      <input name="category" placeholder="Category" type="text" value="<%= @category %>">
+    </dd>
+
+    <dt>
+      <label for="category">Enter the amount:</label>
+    </dt>
+    <dd>
+      <input name="amount" placeholder="0" type="number" value="<%= @amount %>">
+    </dd>
+
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Save">
+    <a href="/">Cancel</a>
+  </fieldset>
 </form>

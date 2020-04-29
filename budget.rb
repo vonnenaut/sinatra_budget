@@ -1,5 +1,4 @@
 # budget.rb
-
 # A budgeting app.
 
 require "sinatra"
@@ -16,32 +15,59 @@ configure do
   set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(20) }
 end
 
-def get_budget
-
+before do
+  session[:items] ||= { 'rent' => 250, 'utilities' => 100, 'education' => 200 }
 end
 
-def generate_pie_chart(data_hash)
-  chart = PiCharts::Pie.new
+# def generate_pie_chart
+#   chart = PiCharts::Pie.new
   
-  data_hash.each_pair do |key, value|
-    chart.add_dataset(label: key, data: value)  
-  end
+#   @data_hash.each_pair do |key, value|
+#     chart.add_dataset(label: key, data: value)  
+#   end
 
-  chart.hover
-  chart.responsive
-  chart.cdn + chart.html(width: 60)
-end
+#   chart.hover
+#   chart.responsive
+#   chart.cdn + chart.html(width: 60)
+# end
 
 get "/" do
-  data_hash = get_budget
-  # data_hash = { 'food' => 300, 'rent' => 250, 'utilities' => 100, 'student loans' => 200 }
-  @chart = generate_pie_chart(data_hash) unless data_hash.nil?
-
+  # draw pie chart
+  # @chart = generate_pie_chart unless @data_hash.nil?
+  @items = session[:items]
   erb :index, layout: :layout
 end
 
-get "/edit" do
+# Render the new budget item form
+get "/new" do
+  erb :new_item, layout: :layout
+end
 
-
+# edit existing budget items
+get "/edit/:category" do
+  @category = params[:category]
+  @amount = session[:items][@category]
   erb :edit, layout: :layout
+end
+
+# create a new budget item (or add to an existing category)
+post "/" do
+  # To-Do: validate input
+  category = params[:category].strip
+  amount = params[:amount].to_i
+
+  session[:items][category] = amount
+  session[:message] = "New item added."
+
+  redirect "/"
+end
+
+get "/delete/:category" do
+  session[:items].reject! { |item| item == params[:category] }
+  session[:message] = "The category has been deleted."
+  if env["HTTP_X_REQUESTED_WITH"] == "XMLHttpRequest"
+    "/"
+  else
+    redirect "/"
+  end
 end

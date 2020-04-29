@@ -1,0 +1,26 @@
+<!-- new_item.erb -->
+
+<h1>New budget item</h1>
+<form method="post" action="/">
+  <dl>
+  
+    <dt>
+      <label for="category">Enter the category for your new item:</label>
+    </dt>
+    <dd>
+      <input name="category" placeholder="Category" type="text" value="">
+    </dd>
+
+    <dt>
+      <label for="category">Enter the amount:</label>
+    </dt>
+    <dd>
+      <input name="amount" placeholder="0" type="number" value="">
+    </dd>
+
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Save">
+    <a href="/">Cancel</a>
+  </fieldset>
+</form>

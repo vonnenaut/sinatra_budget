@@ -7,25 +7,34 @@
   <link rel="stylesheet" href="/stylesheets/whitespace-reset.css">
   <link rel="stylesheet" href="/stylesheets/budget.css">
   <script src="/javascripts/jquery-3.5.0.js"></script>
+  <script src="/javascripts/application.js"></script>
 </head>
 
 <body>
+  <div id="frame">
 
-  <header>
-    <div class="header-item"><h1>Budget App</h1></div>
-  </header>
-
-  <div class="flash">
-    <% if session[:message] %>
-      <div class="flash-message">
-        <p><%= session.delete(:message) %></p>
+    <header>
+      <div class="header-item"><h1>Budget App</h1></div>
+      <div class="actions">
+        <%= yield_content :header_links %>
       </div>
-    <% end %>
+    </header>
+
+    <div class="flash">
+      <% if session[:message] %>
+        <div class="flash-message">
+          <p><%= session.delete(:message) %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <main id="content">
+      <%= yield %>
+    </main>
+
+    <footer>
+    </footer>
+
   </div>
-
-  <main>
-    <%= yield %>
-  </main>
-
 </body>
 </html>
