@@ -1,0 +1,29 @@
+<table id="glance">
+  <% @income_items.each_pair do |category, amount| %>
+    <tr>
+      <td><%= category %></td>
+      <td><%= amount %></td>
+      <td><a href="/edit/<%= category %>">edit</a></td>
+      <td><form action="/delete/<%= category %>" method="post" class="delete">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td>Total:</td>
+    <td><%= @total %></td>
+  </tr>
+
+</table>
+
+<div id="pie">
+  <%= @chart %>
+</div>
+
+<% content_for :header_links do %>
+  <h2>Income At-a-glance</h2>
+  <div>
+    <a class="add" href="/new"><button>Add Item</button></a>
+  </div>
+<% end %>

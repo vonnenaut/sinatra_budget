@@ -25,6 +25,15 @@
 </div>
 
 <% content_for :header_links do %>
+  <form>
+    <h2>Select mode:</h2>
+    <input type="radio" id="spending" name="spending" value="spending" checked>
+    <label for="spending">Spending</label>
+    <input type="radio" id="income" name="income" value="income">
+    <label for="income">Income</label>
+    <input type="radio" id="combined" name="combined" value="combined">
+    <label for="combined">Combined</label>
+    <button type="submit" name="radio">Update</button>
+  </form>
   <a class="add" href="/new"><button>Add Item</button></a>
-  <!-- <a class="tool" href="/tools"><button>Tools</button></a> -->
 <% end %>

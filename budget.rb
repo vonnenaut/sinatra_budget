@@ -16,10 +16,11 @@ configure do
 end
 
 before do
-  session[:items] ||= { 'rent' => 250, 'utilities' => 100, 'education' => 200 }
+  session[:spend_items] ||= { 'rent' => 250, 'utilities' => 100, 'education' => 200 }
+  session[:income_items] ||= { 'basket-weaving' => 500, 'software development' => 100, 'busking' => 200 }
 end
 
-def generate_pie_chart
+def generate_pie_chart(items)
   chart = PiCharts::Pie.new
   
   session[:items].each_pair do |key, value|
@@ -36,10 +37,55 @@ def sum_amounts(items)
 end
 
 get "/" do
-  @items = session[:items]
+  redirect "/spending"
+end
+
+get "/spending" do
+  @items = session[:spend_items]
   @total = sum_amounts(@items)
-  @chart = generate_pie_chart unless @items.nil?
-  erb :index, layout: :layout
+  @chart = generate_pie_chart(@items) unless @items.nil?
+
+  erb :spending, layout: :layout
+end
+
+get "/income" do
+  @items = session[:income_items]
+  @total = sum_amounts(@items)
+  @chart = generate_pie_chart(@items) unless @items.nil?
+
+  erb :income, layout: :layout
+end
+
+get "/combined" do
+  @spending_items = session[:spend_items]
+  @income_items = session[:income_items]
+  @total = sum_amounts(@spending_items.merge(@income_items))
+  @chart_spending = generate_pie_chart(@spending_items) unless @spending_items.nil?
+  @chart_income = generate_pie_chart(@income_items) unless @income_items.nil?
+
+  erb :combined, layout: :layout
+end
+
+
+get "/:mode" do
+  @mode = params[:mode]
+
+  case @mode
+  when 'income' then redirect "/income"
+  when 'combined' then redirect "/combined"
+  else redirect "/spending"
+  end
+end
+ 
+# handle radio button submissions for mode change
+post "/" do
+  @radio = params[:radio]
+
+  case @radio
+  when 'spending' then redirect "/spending"
+  when 'income' then redirect "/income"
+  when 'combined' then redirect "/combined"
+  end
 end
 
 get "/tools" do
@@ -51,15 +97,8 @@ get "/new" do
   erb :new_item, layout: :layout
 end
 
-# edit existing budget items
-get "/edit/:category" do
-  @category = params[:category]
-  @amount = session[:items][@category]
-  erb :edit, layout: :layout
-end
-
 # create a new budget item (or add to an existing category)
-post "/" do
+post "/new" do
   # To-Do: validate input
   category = params[:category].strip
   amount = params[:amount].to_i
@@ -68,6 +107,13 @@ post "/" do
   session[:message] = "New item added."
 
   redirect "/"
+end
+
+# edit existing budget items
+get "/edit/:category" do
+  @category = params[:category]
+  @amount = session[:items][@category]
+  erb :edit, layout: :layout
 end
 
 # delete a category

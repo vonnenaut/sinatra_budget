@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <title>Budget App</title>
+  <title>Budget Planner</title>
   <meta charset="UTF-8">
   <script src="/javascripts/jquery-3.5.0.js"></script>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans">
@@ -17,8 +17,19 @@
   <div class="wrapper">
 
     <header>
-      <h1>Budget App</h1>
+      <h1>Budget Planner</h1>
       <div class="actions">
+          <form>
+    <h2>Select mode:</h2>
+    <div>
+      <a href="/spending">Spending</a>
+
+      <a href="/income">Income</a>
+
+      <a href="/combined">Combined</a>
+    </div>
+
+  </form>
         <%= yield_content :header_links %>
       </div>
     </header>
