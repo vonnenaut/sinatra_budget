@@ -31,7 +31,18 @@ def generate_pie_chart(items)
 
   chart.hover
   chart.responsive
-  chart.cdn + chart.html(width: 60)
+  chart.cdn + chart.html(width: 65)
+end
+
+def generate_bar_chart(spending_total, income_total)
+  chart = PiCharts::Bar.new
+
+  chart.add_dataset(label: 'spending', data: spending_total, color: 'red')
+  chart.add_dataset(label: 'income', data: income_total, color: 'green')
+
+  chart.hover
+  chart.responsive
+  chart.cdn + chart.html(width: 80)
 end
 
 def sum_amounts(values)
@@ -73,6 +84,7 @@ get "/combined" do
   @spending_total = sum_amounts(@spending_items.values)
   @income_total = sum_amounts(@income_items.values)
   @net_total = sum_amounts(@income_items.values) - sum_amounts(@spending_items.values)
+  @chart = generate_bar_chart(@spending_total, @income_total)
 
   erb :combined, layout: :layout
 end
