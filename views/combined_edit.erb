@@ -1,16 +1,16 @@
 <h2>Edit <%= @mode %> in '<%= @category %>' category:</h2>
-<form method="post" action="/<%= @mode %>/edit/<%= @category %>">
+<form method="post" action="/combined/<%= @mode %>/edit/<%= @category %>">
   <dl>
   
     <dt>
-      <label for="category">name:</label>
+      <label for="category">Enter the category for your item:</label>
     </dt>
     <dd>
       <input name="category" placeholder="Category" type="text" value="<%= @category %>">
     </dd>
 
     <dt>
-      <label for="category">amount:</label>
+      <label for="category">Enter the amount:</label>
     </dt>
     <dd>
       <input name="amount" placeholder="0" type="number" value="<%= @amount %>">

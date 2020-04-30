@@ -22,6 +22,15 @@ div.flash {
   background-color: #71c6f7;
 }
 
+.flash-message {
+  font-size: 20px;
+}
+
+div#mode {
+  font-size: 20px;
+  margin: 0em 1em 1em 0em;
+}
+
 #glance {
   grid-area: glance;
 }
@@ -30,18 +39,14 @@ div.flash {
   grid-area: pie;
 }
 
-div.actions {
-
-}
-
 h1 {
   font-size: 32px;
-  padding: 1.4em;
+  padding: 0.2em 0em 0.4em 0em;
 }
 
 h2 {
-  font-size: 22px;
-  padding: .8em;
+  font-size: 20px;
+  padding: .3em 0em .2em 0em;
 }
 
 main#content {

@@ -1,52 +1,70 @@
 <table id="glance">
+  <div>
+    <a class="add" href="/spending/new"><button>Add Spending</button></a>
+  </div>
+
+  <h2>Spending</h2>
   <% @spending_items.each_pair do |category, amount| %>
     <tr>
       <td><%= category %></td>
       <td><%= amount %></td>
-      <td><a href="/edit/<%= category %>">edit</a></td>
-      <td><form action="/delete/<%= category %>" method="post" class="delete">
+      <td><a href="/combined/spending/edit/<%= category %>">edit</a></td>
+      <td><form action="/spending/delete/<%= category %>" method="post" class="delete">
           <button type="submit">Delete</button>
         </form>
       </td>
     </tr>
   <% end %>
   <tr>
-    <td>Total:</td>
-    <td><%= @total %></td>
+    <td>Total Spending:</td>
+    <td><%= @spending_total %></td>
   </tr>
-
 </table>
-
-<div id="pie">
-  <%= @chart %>
-</div>
 
 <table id="glance">
-  <% @spending_items.each_pair do |category, amount| %>
+  <div>
+    <a class="add" href="/income/new"><button>Add Income</button></a>
+  </div>
+
+  <h2>Income</h2>
+  <% @income_items.each_pair do |category, amount| %>
     <tr>
       <td><%= category %></td>
       <td><%= amount %></td>
-      <td><a href="/edit/<%= category %>">edit</a></td>
-      <td><form action="/delete/<%= category %>" method="post" class="delete">
+      <td><a href="/combined/income/edit/<%= category %>">edit</a></td>
+      <td><form action="/income/delete/<%= category %>" method="post" class="delete">
           <button type="submit">Delete</button>
         </form>
       </td>
     </tr>
   <% end %>
   <tr>
-    <td>Total:</td>
-    <td><%= @total %></td>
+    <td>Total Income:</td>
+    <td><%= @income_total %></td>
+  </tr>
+  <tr>
+    <td>Net In/Out:</td>
+    <% if @net_total >= 0 %>
+      <td style="background-color: green;"><%= @net_total %></td>
+    <% else %>
+      <td style="background-color: red;"><%= @net_total %></td>
+    <% end %>
   </tr>
 
 </table>
 
-<div id="pie">
-  <%= @chart %>
-</div>
-
 <% content_for :header_links do %>
-  <h2>Income and Expenses Combined</h2>
-  <div>
-    <a class="add" href="/new"><button>Add Item</button></a>
-  </div>
+  <h2>Combined</h2>
+  
+  <form>
+    <h2>Select mode:</h2>
+    <div id="mode">
+      <a href="/spending">Spending</a>
+
+      <a href="/income">Income</a>
+
+      <a href="/combined">Combined</a>
+    </div>
+  </form>
+
 <% end %>

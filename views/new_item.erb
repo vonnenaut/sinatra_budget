@@ -1,9 +1,14 @@
-<!-- new_item.erb -->
+<h2>New <%= @type %> item</h2>
+<form method="post" action="/<%= @type %>/new">
+   
+    <menulist label="<Type:>">
+      <menupopup>
+        <menuitem label="income" />
+        <menuitem label="expense" />
+      </menupopup>
+    </menulist>
 
-<h2>New budget item</h2>
-<form method="post" action="/new">
   <dl>
-  
     <dt>
       <label for="category">Enter the category for your new item:</label>
     </dt>
@@ -19,6 +24,7 @@
     </dd>
 
   </dl>
+
   <fieldset class="actions">
     <input type="submit" value="Save">
     <a href="/">Cancel</a>
