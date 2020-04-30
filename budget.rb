@@ -31,8 +31,13 @@ def generate_pie_chart
   chart.cdn + chart.html(width: 60)
 end
 
+def sum_amounts(items)
+  items.values.reduce(&:+)
+end
+
 get "/" do
   @items = session[:items]
+  @total = sum_amounts(@items)
   @chart = generate_pie_chart unless @items.nil?
   erb :index, layout: :layout
 end
