@@ -92,14 +92,21 @@ get "/tools" do
   erb :tools, layout: :layout
 end
 
-# Render the new budget item form
+# Render the new budget item form in spending or income mode
 get "/:mode/new" do
   @mode = params[:mode]
 
   erb :new_item, layout: :layout
 end
 
-# create a new budget item (or add to an existing category)
+# Render the new budget item form in combined mode
+get "/combined/:mode/new" do
+  @mode = params[:mode]
+
+  erb :new_item, layout: :layout
+end
+
+# create a new budget item (or add to an existing category) in spending or income mode
 post "/:mode/new" do
   type = params[:mode]
   
@@ -113,6 +120,12 @@ post "/:mode/new" do
 
   redirect "/#{type}"
 end
+
+# Create a new budget item (or add to an existing category) in combined mode
+post "/combined/:mode/new" do
+  
+end
+
 
 # edit existing spending or income budget item in spending or income mode
 get "/:mode/edit/:category" do
@@ -152,8 +165,16 @@ post "/:mode/edit/:category" do
 end
 
 # post changes to spending or income budget item in combined mode
-post "/combined/:type/edit/:category" do
+post "/combined/:mode/edit/:category" do
+  @mode = params[:mode]
+  @category = params[:category]
 
+  key = make_key(@mode)
+
+  session[key][@category] = params[:amount].to_i
+  session[:message] = "#{@mode} item updated."
+
+  redirect "/combined"
 end
 
 # delete a spending category in spending mode
