@@ -76,31 +76,70 @@ get "/combined" do
 
   erb :combined, layout: :layout
 end
- 
-# handle radio button submissions for mode change
-# post "/" do
-#   @radio = params[:radio]
 
-#   case @radio
-#   when 'spending' then redirect "/spending"
-#   when 'income' then redirect "/income"
-#   when 'combined' then redirect "/combined"
-#   end
-# end
+# Render the new budget item form in combined mode
+get "/combined/:mode/new" do
+  @mode = params[:mode]
 
-get "/tools" do
-  erb :tools, layout: :layout
+  erb :combined_new_item, layout: :layout
+end
+
+# Create a new budget item (or add to an existing category) in combined mode
+post "/combined/:mode/new" do
+  type = params[:mode]
+  
+  key = make_key(type)
+
+  category = params[:category].strip
+  amount = params[:amount].to_i
+
+  session[key][category] = amount
+  session[:message] = "New #{type} item added."
+
+  redirect "/combined"
+end
+
+# edit existing spending or income budget item in combined mode
+get "/combined/:mode/edit/:category" do
+  @mode = params[:mode]
+  @category = params[:category]
+
+  key = make_key(@mode)
+
+  @amount = session[key][@category]
+
+  erb :combined_edit, layout: :layout
+end
+
+# post changes to spending or income budget item in combined mode
+post "/combined/:mode/edit/:category" do
+  @mode = params[:mode]
+  @category = params[:category]
+
+  key = make_key(@mode)
+
+  session[key][@category] = params[:amount].to_i
+  session[:message] = "#{@mode} item updated."
+
+  redirect "/combined"
+end
+
+# delete a spending or income category in combined mode
+post "/combined/:mode/delete/:category" do
+  mode = params[:mode]
+  key = make_key(mode)
+
+  session[key].reject! { |item| item == params[:category] }
+  session[:message] = "#{mode} category has been deleted."
+  if env["HTTP_X_REQUESTED_WITH"] == "XMLHttpRequest"
+    "/combined"
+  else
+    redirect "/combined"
+  end
 end
 
 # Render the new budget item form in spending or income mode
 get "/:mode/new" do
-  @mode = params[:mode]
-
-  erb :new_item, layout: :layout
-end
-
-# Render the new budget item form in combined mode
-get "/combined/:mode/new" do
   @mode = params[:mode]
 
   erb :new_item, layout: :layout
@@ -121,12 +160,6 @@ post "/:mode/new" do
   redirect "/#{type}"
 end
 
-# Create a new budget item (or add to an existing category) in combined mode
-post "/combined/:mode/new" do
-  
-end
-
-
 # edit existing spending or income budget item in spending or income mode
 get "/:mode/edit/:category" do
   @mode = params[:mode]
@@ -137,18 +170,6 @@ get "/:mode/edit/:category" do
   @amount = session[key][@category]
 
   erb :edit, layout: :layout
-end
-
-# edit existing spending or income budget item in combined mode
-get "/combined/:mode/edit/:category" do
-  @mode = params[:mode]
-  @category = params[:category]
-
-  key = make_key(@mode)
-
-  @amount = session[key][@category]
-
-  erb :combined_edit, layout: :layout
 end
 
 # post changes to spending or income budget item in spending or income mode
@@ -164,39 +185,16 @@ post "/:mode/edit/:category" do
   redirect "/#{@mode}"
 end
 
-# post changes to spending or income budget item in combined mode
-post "/combined/:mode/edit/:category" do
-  @mode = params[:mode]
-  @category = params[:category]
-
-  key = make_key(@mode)
-
-  session[key][@category] = params[:amount].to_i
-  session[:message] = "#{@mode} item updated."
-
-  redirect "/combined"
-end
-
 # delete a spending category in spending mode
-post "/spending/delete/:category" do
-  session[:spending_items].reject! { |item| item == params[:category] }
-  session[:message] = "The spending category has been deleted."
+post "/:mode/delete/:category" do
+  mode = params[:mode]
+  key = make_key(mode)
+
+  session[key].reject! { |item| item == params[:category] }
+  session[:message] = "#{mode} category has been deleted."
   if env["HTTP_X_REQUESTED_WITH"] == "XMLHttpRequest"
-    "/spending"
+    "/#{mode}"
   else
-    redirect "/spending"
+    redirect "/#{mode}"
   end
 end
-
-# delete an income category in income mode
-post "/income/delete/:category" do
-  session[:income_items].reject! { |item| item == params[:category] }
-  session[:message] = "The income category has been deleted."
-  if env["HTTP_X_REQUESTED_WITH"] == "XMLHttpRequest"
-    "/income"
-  else
-    redirect "/income"
-  end
-end
-
-# delete a spending or income category in combined mode

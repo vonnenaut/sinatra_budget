@@ -1,6 +1,6 @@
 <table id="glance">
   <div>
-    <a class="add" href="/spending/new"><button>Add Spending</button></a>
+    <a class="add" href="/combined/spending/new"><button>Add Spending</button></a>
   </div>
 
   <h2>Spending</h2>
@@ -9,7 +9,7 @@
       <td><%= category %></td>
       <td><%= amount %></td>
       <td><a href="/combined/spending/edit/<%= category %>">edit</a></td>
-      <td><form action="/spending/delete/<%= category %>" method="post" class="delete">
+      <td><form action="/combined/spending/delete/<%= category %>" method="post" class="delete">
           <button type="submit">Delete</button>
         </form>
       </td>
@@ -23,7 +23,7 @@
 
 <table id="glance">
   <div>
-    <a class="add" href="/income/new"><button>Add Income</button></a>
+    <a class="add" href="/combined/income/new"><button>Add Income</button></a>
   </div>
 
   <h2>Income</h2>
@@ -32,7 +32,7 @@
       <td><%= category %></td>
       <td><%= amount %></td>
       <td><a href="/combined/income/edit/<%= category %>">edit</a></td>
-      <td><form action="/income/delete/<%= category %>" method="post" class="delete">
+      <td><form action="/combined/income/delete/<%= category %>" method="post" class="delete">
           <button type="submit">Delete</button>
         </form>
       </td>
