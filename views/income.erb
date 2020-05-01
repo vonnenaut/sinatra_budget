@@ -8,14 +8,16 @@
       <td><%= category %></td>
       <td><%= amount %></td>
       <td><a href="/income/edit/<%= category %>">edit</a></td>
-      <td><form action="/income/delete/<%= category %>" method="post" class="delete">
+      <td>
+        <form action="/income/delete/<%= category %>" method="post" class="delete">
           <button type="submit">Delete</button>
         </form>
       </td>
     </tr>
   <% end %>
+
   <tr>
-    <td>Total:</td>
+    <td>Total Income:</td>
     <td><%= @total %></td>
   </tr>
 
