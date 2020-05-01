@@ -17,13 +17,13 @@ header {
   grid-area: header;
 }
 
-div.flash {
+body > div.flash {
   grid-area: flash;
-  background-color: #71c6f7;
 }
 
 .flash-message {
   font-size: 20px;
+  background-color: #71c6f7;
 }
 
 div#mode {
