@@ -1,4 +1,8 @@
-<table id="glance">
+<table id="spending">
+  <div class="table_header">
+    <a class="add" href="/spending/new"><button>Add</button></a>
+  </div>
+
   <% @spending_items.each_pair do |category, amount| %>
     <tr>
       <td><%= category %></td>
@@ -30,8 +34,4 @@
       <a href="/combined">Combined</a>
     </div>
   </form>
-
-  <div>
-    <a class="add" href="/spending/new"><button>Add Item</button></a>
-  </div>
 <% end %>

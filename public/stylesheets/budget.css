@@ -5,8 +5,12 @@ body {
 }
 
 div.actions {
-  padding: 0px 0px 10px 0px;
+  padding: 0;
   margin: 0 auto;
+}
+
+div.table_header {
+  display: inline-block;
 }
 
 div.wrapper {
@@ -38,9 +42,7 @@ div#mode {
   padding: 0;
 }
 
-#glance {
-  grid-area: glance;
-  padding: 20px;
+#spending, #income {
 }
 
 #pie {
