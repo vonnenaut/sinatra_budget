@@ -1,7 +1,12 @@
 body {
   margin: 0 auto;
-  padding: 10px;
-  width: 33%;
+  padding: 2em;
+  width: 50%;
+}
+
+div.actions {
+  padding: 0px 0px 10px 0px;
+  margin: 0 auto;
 }
 
 div.wrapper {
@@ -10,7 +15,7 @@ div.wrapper {
   grid-template-columns: auto 65% auto;
   grid-template-areas: "header header header"
                        "flash flash flash"
-                       "glance glance pie";
+                       "main main main";
 }
 
 header {
@@ -29,10 +34,13 @@ body > div.flash {
 div#mode {
   font-size: 20px;
   margin: 0em 1em 1em 0em;
+  width: 15em;
+  padding: 0;
 }
 
 #glance {
   grid-area: glance;
+  padding: 20px;
 }
 
 #pie {
@@ -49,6 +57,10 @@ h2 {
   padding: .3em 0em .2em 0em;
 }
 
+main {
+  grid-area: main;
+}
+
 main#content {
   border: blue;
   min-width: 500px;
@@ -56,7 +68,7 @@ main#content {
 
 table {
   border-top: 1px solid black;
-  padding: 5em;
+  padding: 50px;
 }
 
 tr, td {
