@@ -1,7 +1,7 @@
 <table id="spending">
   <div class="table_header">
     <h2>Spending</h2>
-    <a class="add" href="/spending/new"><button>Add</button></a>
+    <a class="add" href="/combined/spending/new"><button>Add</button></a>
 </div>
 
   <% @spending_items.each_pair do |category, amount| %>
@@ -45,7 +45,7 @@
     <td>Total Income:</td>
     <td><%= @income_total %></td>
   </tr>
-  
+
   <tr>
     <td>Net In/Out:</td>
     <% if @net_total >= 0 %>
