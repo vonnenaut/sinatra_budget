@@ -52,11 +52,11 @@ div#mode {
   padding: 0;
 }
 
-#spending, #income {
-}
+#spending, #income {}
 
-#pie {
+div#pie, div#bar {
   margin: 0 auto;
+  max-width: 400px;
 }
 
 h1 {
@@ -84,6 +84,7 @@ table {
 }
 
 tr, td {
+  margin: 0;
   padding: 10px 10px 10px 10px;
   border-bottom: 1px solid black;
 }

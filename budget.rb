@@ -31,7 +31,7 @@ def generate_pie_chart(items)
 
   chart.hover
   chart.responsive
-  chart.cdn + chart.html(width: 65)
+  chart.cdn + chart.html(width: 100)
 end
 
 def generate_bar_chart(spending_total, income_total)
@@ -42,7 +42,7 @@ def generate_bar_chart(spending_total, income_total)
 
   chart.hover
   chart.responsive
-  chart.cdn + chart.html(width: 80)
+  chart.cdn + chart.html(width: 100)
 end
 
 def sum_amounts(values)
