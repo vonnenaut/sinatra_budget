@@ -16,7 +16,7 @@ configure do
 end
 
 before do
-  session[:spending_items] ||= { 'rent' => 250, 'utilities' => 100, 'education' => 200 }
+  session[:spending_items] ||= { 'rent' => 500, 'utilities' => 50, 'food' => 150, 'transport' => 100}
   session[:income_items] ||= { 'software development' => 300, 'busking' => 200 }
 end
 

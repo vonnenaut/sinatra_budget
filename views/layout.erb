@@ -25,9 +25,7 @@
 
     <div class="flash">
       <% if session[:message] %>
-        <div class="flash-message">
-          <p><%= session.delete(:message) %></p>
-        </div>
+        <p><%= session.delete(:message) %></p>
       <% end %>
     </div>
 
