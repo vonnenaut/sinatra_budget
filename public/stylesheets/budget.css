@@ -1,10 +1,4 @@
-a.add {
-  padding-left: 20px;
-}
-
-.center_container {
-  margin: 0 auto;
-}
+a.add {}
 
 body {
   padding: 10px;
@@ -20,9 +14,7 @@ div.actions {
   max-height: 60px;
 }
 
-div.table_header {
-  display: flex;
-}
+div.table_header {}
 
 div.wrapper {
   display: grid;
@@ -33,6 +25,7 @@ div.wrapper {
                        "main main main";
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
 header {
@@ -54,7 +47,7 @@ body > div.flash {
 
 div#mode {
   font-size: 20px;
-  margin: 0;
+  margin: 0 auto;
   width: 15em;
   padding: 0;
 }
@@ -63,12 +56,12 @@ div#mode {
 }
 
 #pie {
-  max-width: 500px;
+  margin: 0 auto;
 }
 
 h1 {
   font-size: 32px;
-  padding: 0.2em 0em 0.4em 0em;
+  padding: 0.4em 0em 0.4em 0em;
 }
 
 h2 {
@@ -81,11 +74,11 @@ main {
 }
 
 main#content {
-  border: blue;
   min-width: 500px;
 }
 
 table {
+  margin: 0 auto;
   border-top: 1px solid black;
   padding-bottom: 20px;
 }
