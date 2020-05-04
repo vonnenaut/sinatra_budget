@@ -106,7 +106,7 @@ div#pie, div#bar {
   }
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 800px) {
   a.add {
     font-size: 24px;
   }
