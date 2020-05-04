@@ -5,8 +5,6 @@
  /* BEGIN IMPORT    */
 
 /* BEGIN CLASSES    */
-a.add {}
-
 div.actions {
   padding: 0;
   margin: 0;
@@ -109,60 +107,30 @@ div#pie, div#bar {
 }
 
 @media screen and (max-width: 770px) {
+  a.add {
+    font-size: 24px;
+  }
+
+  a.edit {
+    font-size: 24px;
+  }
+
   h1 {
-    font-size: 28px;
+    font-size: 23px;
   }
 
   h2 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
-  h3 {
-    font-size: 14px;
-  }
-
-  h4 {
-    font-size: 10px;
-  }
-
-  p.description {
-    font-size: 12px;
-  }
-
-  ul#nav-list {
-    max-width: 65%;
-    padding: 0;
-  }
-
-  ul#nav-list li {
-    padding: 0;
-  }
-
-  .col {
-    flex: 100%;
-    max-width: 100%;
-  }
-
-  .profile-link {
-    padding: 5px;
-  }
-
-  #content-area {
-    background-image: url("../img/background_dark_mobile.jpg");
-  }
-
-  #navbar {
-    font-size: 20px;
-    max-height: 19%;
-    padding: 0px 0px 5px 0px;
+  div#mode {
+    font-size: 24px;
   }
 }
 
 @media screen and (max-width: 260px) {
-  #navbar {
-    font-size: 15px;
-    min-height: 35%;
-    padding: 0px 0px 5px 0px;
+  .flash {
+    min-width: 150px;
   }
 }
 
