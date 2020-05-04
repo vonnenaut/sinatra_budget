@@ -1,24 +1,29 @@
 <table id="spending">
-  <div class="table_header">
-    <a class="add" href="/spending/new"><button>Add</button></a>
-  </div>
-
-  <% @spending_items.each_pair do |category, amount| %>
+  <thead>
     <tr>
-      <td><%= category %></td>
-      <td><%= amount %></td>
-      <td><a href="/spending/edit/<%= category %>">edit</a></td>
-      <td><form action="/spending/delete/<%= category %>" method="post" class="delete">
-          <button type="submit">Delete</button>
-        </form>
-      </td>
+      <th class="table_header">
+        <td><a class="add" href="/spending/new"><button>Add</button></a></td>
+      </th>
     </tr>
-  <% end %>
-  <tr>
-    <td>Total:</td>
-    <td><%= @total %></td>
-  </tr>
+  </thead>
 
+  <tbody>
+    <% @spending_items.each_pair do |category, amount| %>
+      <tr>
+        <td><%= category %></td>
+        <td><%= amount %></td>
+        <td><a class="edit" href="/spending/edit/<%= category %>">edit</a></td>
+        <td><form action="/spending/delete/<%= category %>" method="post" class="delete">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>Total:</td>
+      <td><%= @total %></td>
+    </tr>
+  </tbody>
 </table>
 
 <div id="pie">
@@ -29,11 +34,4 @@
 
 <% content_for :header_links do %>
   <h2>Spending At-a-glance</h2>
-  <form>
-    <div id="mode">
-      <a href="/spending">Spending</a>
-      <a href="/income">Income</a>
-      <a href="/combined">Combined</a>
-    </div>
-  </form>
 <% end %>

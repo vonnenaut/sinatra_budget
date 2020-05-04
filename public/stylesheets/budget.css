@@ -1,4 +1,4 @@
-/*
+
  * budget.css
  * css for budget app
  /* */
@@ -14,8 +14,8 @@ div.actions {
 .flash {
   grid-area: flash;
   max-width: 960px;
-  min-width: 280px;
-  padding: 10px, 20px;
+  min-width: 75%;
+  padding: 10px 20px;
   margin: 20px auto 1.5em auto;
   background-color: #71c6f7;
 }
@@ -40,6 +40,7 @@ body {
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 header {
@@ -127,9 +128,27 @@ div#pie, div#bar {
   }
 }
 
+@media screen and (max-width: 520px) {
+  main#content {
+    width: 100%;
+    min-width: 150px;
+  }
+
+  div#mode {
+    margin: 0 auto;
+    width: 15em;
+    padding: 0;
+  }
+
+  div#pie, div#bar {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
 @media screen and (max-width: 260px) {
   .flash {
-    min-width: 150px;
+    min-width: 130px;
   }
 }
 
