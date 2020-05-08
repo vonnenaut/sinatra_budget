@@ -100,13 +100,6 @@ div#pie, div#bar {
 
 /*BEGIN MEDIA QUERIES */
 @media screen and (max-width: 1000px) {
-  .col {
-    flex: 25%;
-    max-width: 50%;
-  }
-}
-
-@media screen and (max-width: 800px) {
   div.wrapper {
     display: grid;
     grid-template-rows: 15% 10% auto;
@@ -131,6 +124,13 @@ div#pie, div#bar {
     grid-area: flash;
   }
 
+  .col {
+    flex: 25%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 800px) {
   a.add {
     font-size: 28px;
   }
@@ -163,8 +163,4 @@ div#pie, div#bar {
     width: 80%;
   }
 }
-
-@media screen and (max-width: 260px) {
-}
-
 /* END OF FILE:  budget.css  */
