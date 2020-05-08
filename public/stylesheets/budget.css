@@ -91,6 +91,10 @@ div#mode {
   padding: 0;
 }
 
+#note {
+  font-size: 0.7em;
+}
+
 #spending, #income {}
 
 div#pie, div#bar {

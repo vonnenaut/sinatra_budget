@@ -49,13 +49,16 @@ def sum_amounts(values)
   values.reduce(&:+)
 end
 
-def make_key(type)
-  case type
+def make_key(mode)
+  case mode
   when 'spending' then :spending_items
   when 'income' then :income_items
   end
 end
 
+def valid_input?(input)
+  !input.nil? && input.length > 0
+end
 ## Begin Routes #########################
 
 get "/" do
@@ -98,15 +101,20 @@ end
 
 # Create a new budget item (or add to an existing category) in combined mode
 post "/combined/:mode/new" do
-  type = params[:mode]
+  mode = params[:mode]
   
-  key = make_key(type)
+  key = make_key(mode)
 
   category = params[:category].strip
   amount = params[:amount].to_i
 
+  unless valid_input?(category)
+    session[:message] = "Must enter a category name."
+    redirect "/combined/#{mode}/new"
+  end
+
   session[key][category] = amount
-  session[:message] = "New #{type} item added."
+  session[:message] = "New #{mode} item added."
 
   redirect "/combined"
 end
@@ -159,17 +167,22 @@ end
 
 # create a new budget item (or add to an existing category) in spending or income mode
 post "/:mode/new" do
-  type = params[:mode]
+  mode = params[:mode]
   
-  key = make_key(type)
+  key = make_key(mode)
 
   category = params[:category].strip
   amount = params[:amount].to_i
 
-  session[key][category] = amount
-  session[:message] = "New #{type} item added."
+  unless valid_input?(category)
+    session[:message] = "Must enter a category name."
+    redirect "/#{mode}/new"
+  end
 
-  redirect "/#{type}"
+  session[key][category] = amount
+  session[:message] = "New #{mode} item added."
+
+  redirect "/#{mode}"
 end
 
 # edit existing spending or income budget item in spending or income mode
