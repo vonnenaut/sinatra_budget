@@ -4,6 +4,17 @@
 /* BEGIN IMPORT    */
 
 /* BEGIN CLASSES    */
+div.wrapper {
+  display: grid;
+  grid-template-rows: 0.4fr 0.1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-areas: "header"
+                       "flash"
+                       "main";
+  grid-gap: 0px;
+  text-align: center;
+}
+
 div.actions {
   padding: 0;
   margin: 0;
@@ -16,20 +27,6 @@ div.actions {
   width: 65%;
   margin: 20px auto 1.5em auto;
   background-color: #71c6f7;
-}
-
-div.table_header {}
-
-div.wrapper {
-  display: grid;
-  grid-template-rows: 15% 10% auto;
-  grid-template-columns: auto 65% auto;
-  grid-template-areas: "header header header"
-                       ". flash ."
-                       "main main main";
-  padding: 0;
-  margin: 0;
-  text-align: center;
 }
 
 /* BEGIN ELEMENTS */
