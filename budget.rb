@@ -59,6 +59,21 @@ end
 def valid_input?(input)
   !input.nil? && input.length > 0
 end
+
+def validate(category, mode, combined=false)
+  if combined
+    unless valid_input?(category)
+      string = "/combined/#{mode}/new"
+    end
+  else
+    unless valid_input?(category)
+      string = "/#{mode}/new"
+    end
+  end
+  
+  session[:message] = "Must enter a category name."
+  redirect "#{string}"
+end
 ## Begin Routes #########################
 
 get "/" do
@@ -108,10 +123,7 @@ post "/combined/:mode/new" do
   category = params[:category].strip
   amount = params[:amount].to_i
 
-  unless valid_input?(category)
-    session[:message] = "Must enter a category name."
-    redirect "/combined/#{mode}/new"
-  end
+  validate(category, mode, true)
 
   session[key][category] = amount
   session[:message] = "New #{mode} item added."
@@ -174,10 +186,7 @@ post "/:mode/new" do
   category = params[:category].strip
   amount = params[:amount].to_i
 
-  unless valid_input?(category)
-    session[:message] = "Must enter a category name."
-    redirect "/#{mode}/new"
-  end
+  validate(category, mode)
 
   session[key][category] = amount
   session[:message] = "New #{mode} item added."
