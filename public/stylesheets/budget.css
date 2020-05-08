@@ -97,31 +97,6 @@ div#pie, div#bar {
 
 /*BEGIN MEDIA QUERIES */
 @media screen and (max-width: 1000px) {
-  div.wrapper {
-    display: grid;
-    grid-template-rows: 15% 10% auto;
-    grid-template-columns: 100%;
-    grid-template-areas: "header"
-                         "flash"
-                         "main";
-    padding: 0;
-    margin: 0;
-    text-align: center;
-  }
-
-  header {
-    grid-area: header;
-  }
-
-  main {
-    grid-area: main;
-  }
-
-  .flash {
-    grid-area: flash;
-    width: 65%;
-  }
-
   .col {
     flex: 25%;
     max-width: 50%;
