@@ -13,6 +13,7 @@ div.actions {
 .flash {
   grid-area: flash;
   max-width: 960px;
+  width: 65%;
   margin: 20px auto 1.5em auto;
   background-color: #71c6f7;
 }
@@ -24,7 +25,7 @@ div.wrapper {
   grid-template-rows: 15% 10% auto;
   grid-template-columns: auto 65% auto;
   grid-template-areas: "header header header"
-                       "flash flash flash"
+                       ". flash ."
                        "main main main";
   padding: 0;
   margin: 0;
@@ -37,7 +38,6 @@ body {
   margin: 0 auto;
   align-items: center;
   justify-content: center;
-  width: 100%;
 }
 
 header {
@@ -153,9 +153,6 @@ div#pie, div#bar {
 }
 
 @media screen and (max-width: 260px) {
-  .flash {
-    min-width: 130px;
-  }
 }
 
 /* END OF FILE:  budget.css  */
