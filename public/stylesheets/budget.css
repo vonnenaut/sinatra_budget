@@ -88,13 +88,6 @@ div#pie, div#bar {
 }
 
 /*BEGIN MEDIA QUERIES */
-/*@media screen and (max-width: 1000px) {
-  .col {
-    flex: 25%;
-    max-width: 50%;
-  }
-}
-
 @media screen and (max-width: 800px) {
   a.add {
     font-size: 28px;
@@ -116,15 +109,4 @@ div#pie, div#bar {
     font-size: 26px;
   }
 }
-
-@media screen and (max-width: 520px) {
-  div#mode {
-    margin: 0 auto;
-  }
-
-  div#pie, div#bar {
-    margin: 0 auto;
-    width: 80%;
-  }
-}*/
 /* END OF FILE:  budget.css  */
