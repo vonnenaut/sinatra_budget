@@ -4,6 +4,12 @@
 /* BEGIN IMPORT    */
 
 /* BEGIN CLASSES    */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 div.wrapper {
   display: grid;
   grid-template-rows: 0.4fr 0.1fr auto;
