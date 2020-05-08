@@ -14,8 +14,7 @@ div.actions {
 .flash {
   grid-area: flash;
   max-width: 960px;
-  min-width: 75%;
-  padding: 10px 20px;
+  min-width: 70%;
   margin: 20px auto 1.5em auto;
   background-color: #71c6f7;
 }

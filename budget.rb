@@ -64,15 +64,16 @@ def validate(category, mode, combined=false)
   if combined
     unless valid_input?(category)
       string = "/combined/#{mode}/new"
+      session[:message] = "Must enter a category name."
+      redirect "#{string}"
     end
   else
     unless valid_input?(category)
       string = "/#{mode}/new"
+      session[:message] = "Must enter a category name."
+      redirect "#{string}"
     end
   end
-  
-  session[:message] = "Must enter a category name."
-  redirect "#{string}"
 end
 ## Begin Routes #########################
 
