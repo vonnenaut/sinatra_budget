@@ -32,10 +32,6 @@ header {
 }
 
 .flash {
-  grid-area: flash;
-  max-width: 960px;
-  width: 65%;
-  margin: 20px auto 1.5em auto;
   background-color: #71c6f7;
 }
 
@@ -51,7 +47,7 @@ p {
 
 h1 {
   font-size: 32px;
-  padding: 0.4em 0em 0.4em 0em;
+  padding: 0.2em 0em;
 }
 
 h2 {
@@ -79,7 +75,6 @@ main#content {
 div#mode {
   font-size: 20px;
   margin: 0 auto;
-  width: 15em;
 }
 
 #note {
