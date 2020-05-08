@@ -1,14 +1,13 @@
 
  /* budget.css
    css for budget app */
-/* BEGIN IMPORT    */
-
-/* BEGIN CLASSES    */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+/* BEGIN MAIN LAYOUT SELECTORS */
 
 div.wrapper {
   display: grid;
@@ -25,10 +24,8 @@ div.wrapper {
   overflow: none;
 }
 
-div.actions {
-  padding: 0;
-  margin: 0;
-  max-height: 60px;
+header {
+  grid-area: header;
 }
 
 .flash {
@@ -39,6 +36,10 @@ div.actions {
   background-color: #71c6f7;
 }
 
+main {
+  grid-area: main;
+}
+
 /* BEGIN ELEMENTS */
 body {
   padding: 10px;
@@ -47,9 +48,10 @@ body {
   justify-content: center;
 }
 
-header {
-  grid-area: header;
+div.actions {
   padding: 0;
+  margin: 0;
+  max-height: 60px;
 }
 
 p {
@@ -65,10 +67,6 @@ h1 {
 h2 {
   font-size: 20px;
   padding: .3em 0em .2em 0em;
-}
-
-main {
-  grid-area: main;
 }
 
 table {
@@ -92,7 +90,6 @@ div#mode {
   font-size: 20px;
   margin: 0 auto;
   width: 15em;
-  padding: 0;
 }
 
 #note {
@@ -106,7 +103,7 @@ div#pie, div#bar {
 }
 
 /*BEGIN MEDIA QUERIES */
-@media screen and (max-width: 1000px) {
+/*@media screen and (max-width: 1000px) {
   .col {
     flex: 25%;
     max-width: 50%;
@@ -138,12 +135,11 @@ div#pie, div#bar {
 @media screen and (max-width: 520px) {
   div#mode {
     margin: 0 auto;
-    padding: 0;
   }
 
   div#pie, div#bar {
     margin: 0 auto;
     width: 80%;
   }
-}
+}*/
 /* END OF FILE:  budget.css  */
