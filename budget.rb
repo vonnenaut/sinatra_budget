@@ -21,7 +21,6 @@ before do
 end
 
 ## Begin Helper methods ###################
-
 def generate_pie_chart(items)
   chart = PiCharts::Pie.new
   
@@ -63,20 +62,18 @@ end
 def validate(category, mode, combined=false)
   if combined
     unless valid_input?(category)
-      string = "/combined/#{mode}/new"
       session[:message] = "Must enter a category name."
-      redirect "#{string}"
+      redirect "/combined/#{mode}/new"
     end
   else
     unless valid_input?(category)
-      string = "/#{mode}/new"
       session[:message] = "Must enter a category name."
-      redirect "#{string}"
+      redirect "/#{mode}/new"
     end
   end
 end
-## Begin Routes #########################
 
+## Begin Routes #########################
 get "/" do
   redirect "/spending"
 end
