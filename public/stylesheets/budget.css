@@ -1,8 +1,7 @@
 
- * budget.css
- * css for budget app
- /* */
- /* BEGIN IMPORT    */
+ /* budget.css
+   css for budget app */
+/* BEGIN IMPORT    */
 
 /* BEGIN CLASSES    */
 div.actions {
@@ -110,7 +109,7 @@ div#pie, div#bar {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   a.add {
     font-size: 24px;
   }
@@ -130,14 +129,13 @@ div#pie, div#bar {
   div#mode {
     font-size: 24px;
   }
+
+  main#content, div.wrapper {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 520px) {
-  main#content {
-    width: 100%;
-    min-width: 150px;
-  }
-
   div#mode {
     margin: 0 auto;
     width: 15em;
