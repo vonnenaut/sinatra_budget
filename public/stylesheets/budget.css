@@ -122,6 +122,7 @@ div#pie, div#bar {
 
   .flash {
     grid-area: flash;
+    width: 65%;
   }
 
   .col {
