@@ -24,11 +24,11 @@ $(function() {
     }
   });
 
-  $("form.delete").submit(function(event) {
+  $("a.edit").submit(function(event) {
     event.preventDefault();
     event.stopPropagation();
 
-    var ok = confirm("Are you sure? This cannot be undone!");
+    var ok = confirm("Category exists with this name and it will be overwritten. Are you sure? This cannot be undone!");
     if (ok) {
       var form = $(this);
 
