@@ -109,29 +109,29 @@ div#pie, div#bar {
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 800px) {
   a.add {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   a.edit {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   h1 {
-    font-size: 23px;
+    font-size: 25px;
   }
 
   h2 {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   div#mode {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   main#content, div.wrapper {
-    width: 100%;
+    min-width: 100%;
   }
 }
 
