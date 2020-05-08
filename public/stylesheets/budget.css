@@ -78,7 +78,7 @@ tr, td {
 
 /*BEGIN SECTION IDs */
 main#content {
-  min-width: 500px;
+  text-align: center;
 }
 
 div#mode {
@@ -92,8 +92,6 @@ div#mode {
   font-size: 0.7em;
   color: red;
 }
-
-#spending, #income {}
 
 div#pie, div#bar {
   margin: 0 auto;
@@ -109,6 +107,18 @@ div#pie, div#bar {
 }
 
 @media screen and (max-width: 800px) {
+  div.wrapper {
+    display: grid;
+    grid-template-rows: 15% 10% auto;
+    grid-template-columns: 100%;
+    grid-template-areas: "header"
+                         "flash"
+                         "main";
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
   a.add {
     font-size: 28px;
   }
@@ -128,16 +138,11 @@ div#pie, div#bar {
   div#mode {
     font-size: 26px;
   }
-
-  main#content, div.wrapper {
-    min-width: 100%;
-  }
 }
 
 @media screen and (max-width: 520px) {
   div#mode {
     margin: 0 auto;
-    width: 15em;
     padding: 0;
   }
 
