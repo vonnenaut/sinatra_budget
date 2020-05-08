@@ -119,6 +119,18 @@ div#pie, div#bar {
     text-align: center;
   }
 
+  header {
+    grid-area: header;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  .flash {
+    grid-area: flash;
+  }
+
   a.add {
     font-size: 28px;
   }
