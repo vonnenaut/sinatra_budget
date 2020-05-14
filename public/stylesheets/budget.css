@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* budget.css
    css for budget app */
  /* BEGIN IMPORT    */
@@ -6,13 +5,12 @@
 /* BEGIN CLASSES    */
 div.actions {
   padding: 0;
-=======
+}
 
  /* budget.css
    css for budget app */
 * {
   box-sizing: border-box;
->>>>>>> 3065cbc39bacbee62f5dc66196b4fcaf58588cd6
   margin: 0;
   padding: 0;
 }
