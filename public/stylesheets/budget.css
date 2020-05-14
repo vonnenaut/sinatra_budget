@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* budget.css
    css for budget app */
  /* BEGIN IMPORT    */
@@ -5,45 +6,48 @@
 /* BEGIN CLASSES    */
 div.actions {
   padding: 0;
+=======
+
+ /* budget.css
+   css for budget app */
+* {
+  box-sizing: border-box;
+>>>>>>> 3065cbc39bacbee62f5dc66196b4fcaf58588cd6
   margin: 0;
-  max-height: 60px;
+  padding: 0;
 }
 
-.flash {
-  grid-area: flash;
-  max-width: 960px;
-  min-width: 75%;
-  padding: 10px 20px;
-  margin: 20px auto 1.5em auto;
-  background-color: #71c6f7;
+/* BEGIN MAIN LAYOUT SELECTORS */
+body {
+  display: flex;
+  flex-direction: column;
 }
-
-div.table_header {}
 
 div.wrapper {
-  display: grid;
-  grid-template-rows: 15% 10% auto;
-  grid-template-columns: auto 65% auto;
-  grid-template-areas: "header header header"
-                       "flash flash flash"
-                       "main main main";
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-
-/* BEGIN ELEMENTS */
-body {
-  padding: 10px;
+  width: 90%;
   margin: 0 auto;
+  overflow: none;
+  padding: 10px;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  padding: 15px 10px;
 }
 
 header {
-  grid-area: header;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 10px;
+}
+
+.flash {
+  background-color: #71c6f7;
+}
+
+/* BEGIN ELEMENTS */
+div.actions {
+  max-height: 60px;
 }
 
 p {
@@ -53,16 +57,12 @@ p {
 
 h1 {
   font-size: 32px;
-  padding: 0.4em 0em 0.4em 0em;
+  padding: 0.2em 0em;
 }
 
 h2 {
   font-size: 20px;
   padding: .3em 0em .2em 0em;
-}
-
-main {
-  grid-area: main;
 }
 
 table {
@@ -79,17 +79,18 @@ tr, td {
 
 /*BEGIN SECTION IDs */
 main#content {
-  min-width: 500px;
+  text-align: center;
 }
 
 div#mode {
   font-size: 20px;
   margin: 0 auto;
-  width: 15em;
-  padding: 0;
 }
 
-#spending, #income {}
+#note {
+  font-size: 0.7em;
+  color: red;
+}
 
 div#pie, div#bar {
   margin: 0 auto;
@@ -97,57 +98,25 @@ div#pie, div#bar {
 }
 
 /*BEGIN MEDIA QUERIES */
-@media screen and (max-width: 1000px) {
-  .col {
-    flex: 25%;
-    max-width: 50%;
-  }
-}
-
 @media screen and (max-width: 800px) {
   a.add {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   a.edit {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   h1 {
-    font-size: 23px;
+    font-size: 25px;
   }
 
   h2 {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   div#mode {
-    font-size: 24px;
+    font-size: 26px;
   }
 }
-
-@media screen and (max-width: 520px) {
-  main#content {
-    width: 100%;
-    min-width: 150px;
-  }
-
-  div#mode {
-    margin: 0 auto;
-    width: 15em;
-    padding: 0;
-  }
-
-  div#pie, div#bar {
-    margin: 0 auto;
-    width: 80%;
-  }
-}
-
-@media screen and (max-width: 260px) {
-  .flash {
-    min-width: 130px;
-  }
-}
-
 /* END OF FILE:  budget.css  */

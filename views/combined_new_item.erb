@@ -1,13 +1,14 @@
-<h2>Create new <%= @mode %> item</h2>
+<h2>New <%= @mode %> item</h2>
 <form method="post" action="/combined/<%= @mode %>/new">
 
   <dl>
     <dt>
-      <label for="category">ctegory:</label>
+      <label for="category">category:</label>
     </dt>
     <dd>
       <input name="category" placeholder="Category" type="text" value="">
     </dd>
+    <div id="note">WARNING: using an existing category name will overwrite that category.</div>
 
     <dt>
       <label for="category">amount:</label>
