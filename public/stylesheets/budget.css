@@ -7,7 +7,7 @@
 }
 
 a.button {
-  font: bold 11px Arial;
+  font: 11px Arial;
   text-decoration: none;
   background-color: #EEEEEE;
   color: #333333;
@@ -22,6 +22,7 @@ a.button {
 body {
   display: flex;
   flex-direction: column;
+  font-size: 1.2em;
 }
 
 div.actions {
@@ -104,13 +105,76 @@ div#pie, div#bar {
 }
 
 /*BEGIN MEDIA QUERIES */
-@media screen and (max-width: 950px) {
+
+/* large tablet (9.6") */
+@media screen and (max-width: 1300px) {
+  a.add {
+    font-size: 38px;
+  }
+
+  a.button {
+    font: 32px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 5px 9px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+    box-shadow: 1px 2px 5px black;
+  }
+
+  a.edit {
+    font-size: 30px;
+  }
+
+  body {
+    font-size: 1.8em;
+  }
+
+  button {
+    font-size: 34px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  div#mode {
+    font-size: 26px;
+  }
+}
+
+/* Mobile Phone */
+@media screen and (max-width: 800px) {
   a.add {
     font-size: 28px;
   }
 
+  a.button {
+    font: bold 18px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 5px 9px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+    box-shadow: 1px 2px 5px black;
+  }
+
   a.edit {
     font-size: 26px;
+  }
+
+  button {
+    font-size: 22px;
   }
 
   h1 {
