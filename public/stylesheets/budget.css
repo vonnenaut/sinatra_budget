@@ -1,24 +1,31 @@
 /* budget.css
    css for budget app */
- /* BEGIN IMPORT    */
-
-/* BEGIN CLASSES    */
-div.actions {
-  padding: 0;
-}
-
- /* budget.css
-   css for budget app */
-* {
+ * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* BEGIN MAIN LAYOUT SELECTORS */
+a.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  box-shadow: 1px 2px 5px black;
+}
+
 body {
   display: flex;
   flex-direction: column;
+}
+
+div.actions {
+  padding: 0;
 }
 
 div.wrapper {
@@ -54,12 +61,12 @@ p {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 25px;
   padding: 0.2em 0em;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 16px;
   padding: .3em 0em .2em 0em;
 }
 
@@ -81,8 +88,9 @@ main#content {
 }
 
 div#mode {
-  font-size: 20px;
+  font-size: 16px;
   margin: 0 auto;
+  padding: 2px;
 }
 
 #note {
@@ -96,7 +104,7 @@ div#pie, div#bar {
 }
 
 /*BEGIN MEDIA QUERIES */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
   a.add {
     font-size: 28px;
   }
