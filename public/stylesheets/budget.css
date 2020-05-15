@@ -7,7 +7,7 @@
 }
 
 a.button {
-  font: 11px Arial;
+  font: 17px Arial;
   text-decoration: none;
   background-color: #EEEEEE;
   color: #333333;
@@ -17,6 +17,14 @@ a.button {
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
   box-shadow: 1px 2px 5px black;
+}
+
+a.edit {
+  font-size: 17px;
+}
+
+button {
+  font-size: 14px;
 }
 
 body {
