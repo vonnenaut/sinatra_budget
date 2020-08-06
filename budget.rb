@@ -1,6 +1,5 @@
 # budget.rb
 # A budgeting app.
-
 require "sinatra"
 require "sinatra/reloader" if development?
 require "sinatra/contrib"
