@@ -18,7 +18,10 @@
   <div class="wrapper">
 
     <header>
-      <h1>Budget Planner</h1>
+<!--       <%= p session.keys %>
+ -->      <%= p session[:spending_items] %>
+<!--       <%= p params %>
+ -->      <h1>Budget Planner</h1>
       <div class="actions">          
         <%= yield_content :header_links %>
       </div>
